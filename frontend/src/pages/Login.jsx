@@ -83,7 +83,6 @@ const Login = () => {
             </div>
 
             <button
-              type="submit"
               className="w-full bg-yellow-400 py-3 font-semibold rounded-xl shadow-md hover:bg-yellow-500 transition"
             >
               Đăng nhập
