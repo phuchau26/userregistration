@@ -9,21 +9,21 @@ import {
 } from '@nestjs/common';
 import { UserService } from './user.service';
 import { CreateUserDto } from './dto/create-user-dto';
-import { User } from './schemas/user.schema';
+import { User } from './user.schema';
 
-@Controller('users')
+@Controller('user')
 export class UserController {
   constructor(private readonly userService: UserService) {}
 
-  @Post()
+  @Post('/register')
   async create(@Body() createUserDto: CreateUserDto): Promise<User> {
     return this.userService.create(createUserDto);
   }
 
+  // Route này phải được định nghĩa TRƯỚC route @Get(':id')
   @Get()
   async findAll(): Promise<User[]> {
     const users = await this.userService.findAll();
-    console.log('✅ All Users:', users);
     return users;
   }
 
