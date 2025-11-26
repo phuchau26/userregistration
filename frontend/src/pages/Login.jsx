@@ -1,7 +1,16 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const Login = () => {
+  const navigate = useNavigate();
+
+
+  const handleLogin = (e) => {
+    e.preventDefault();
+
+    navigate("/"); 
+  };
+  
   return (
     <div className="min-h-screen bg-gradient-to-br from-yellow-200 to-yellow-400 flex items-center justify-center p-6 w-full">
 
@@ -63,7 +72,7 @@ const Login = () => {
           </p>
 
           {/* LOGIN FORM */}
-          <form className="space-y-5">
+          <form className="space-y-5" onSubmit={handleLogin}>
             <div className="text-left">
               <label className="block mb-1 font-medium">Email</label>
               <input
@@ -83,6 +92,7 @@ const Login = () => {
             </div>
 
             <button
+              type="submit"
               className="w-full bg-yellow-400 py-3 font-semibold rounded-xl shadow-md hover:bg-yellow-500 transition"
             >
               Đăng nhập
